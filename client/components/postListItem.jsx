@@ -3,8 +3,8 @@ import React from 'react';
 const PostListItem = ({post}) => (
     <div className="row">
         <div className="col-xs" style={{padding: '.5rem'}}>
-            <div>post.upvotes</div>
-            <div>post.downvotes</div>
+            <div>{post.upvotes}</div>
+            <div>{post.downvotes}</div>
         </div>
         <div className="col-xs"  style={{padding: '.5rem'}}>
             {/*// TODO replace with if null case */}

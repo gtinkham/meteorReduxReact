@@ -1,32 +1,24 @@
 import React from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 import { Posts } from '../../collections/posts/postCollection';
+import PostListItem from './postListItem';
 
 const PER_PAGE = 20;
 class PostList extends React.Component {
+    renderPosts(posts) {
+        return posts.map((post)=> <PostListItem key={post._id} post={post}/>);
+    }
     render () {
+        console.log(this.props.posts);
         return (
             <div className="container-fluid" style={{backgroundColor: 'black', color: 'white'}}>
-                <div className="row">
-                    <div className="col-xs" style={{padding: '.5rem'}}>
-                        <div>upvote</div>
-                        <div>downvote</div>
-                    </div>
-                    <div className="col-xs"  style={{padding: '.5rem'}}>
-                        image
-                    </div>
-                    <div className="col-xs"  style={{padding: '.5rem'}}>
-                        <div>Title</div>
-                        <div>Description</div>
-                    </div>
-                </div>
+                {this.renderPosts(this.props.posts)}
             </div>
         )
     }
 }
 
 export default createContainer(() => {
-    Meteor.subscribe('posts', PER_PAGE);
-
+    const sub = Meteor.subscribe('posts', PER_PAGE);
     return {posts: Posts.find({}).fetch()};
 }, PostList) ;
