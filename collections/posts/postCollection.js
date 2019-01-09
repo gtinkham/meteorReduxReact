@@ -55,26 +55,24 @@ Meteor.startup(() => {
     // code to run on server at startup
     import faker from 'faker';
 
-    const numberRecords = Posts.find({}).count();
-    console.log('Number of posts',numberRecords);
+    // const numberRecords = Posts.find({}).count();
+    // console.log('Number of posts',numberRecords);
 
-    if(!numberRecords) {
-        _.times(500, () => {
-            const card = faker.lorem;
-            const post = {
-                title: card.sentence(),
-                description: card.sentence(),
-                upvotes: Math.floor(Math.random() * 1000),
-                downvotes: Math.floor(Math.random() * 1000),
-                image: faker.image.avatar(),
-                createdBy: faker.internet.userName()
-            }
-            // console.log('post', post)
-            Posts.insert(post);
-        });
-    }
+    // if(numberRecords < 500) {
+        // _.times(500, () => {
+        //     const card = faker.lorem;
+        //     const post = {
+        //         title: card.sentence(),
+        //         description: card.sentence(),
+        //         upvotes: Math.floor(Math.random() * 1000),
+        //         downvotes: Math.floor(Math.random() * 1000),
+        //         image: faker.image.avatar(),
+        //         createdBy: faker.internet.userName()
+        //     }
+        //     // console.log('post', post)
+        //     Posts.insert(post);
+        // });
+    // }
 
-    // Meteor.publish('employees', function(per_page) {
-    //     return Employees.find({}, {limit: per_page});
-    // });
+
 });

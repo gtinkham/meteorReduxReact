@@ -8,7 +8,7 @@ const PostListItem = ({post}) => (
         </div>
         <div className="col-xs"  style={{padding: '.5rem'}}>
             {/*// TODO replace with if null case */}
-            {post.image ? <img src={post.image} alt="postAvatar"/> : null}
+            {post.image ? <img src={post.image} alt="postAvatar" className="img-fluid" style={{width: '4rem'}}/> : null}
         </div>
         <div className="col-xs"  style={{padding: '.5rem'}}>
             <div>{post.title}</div>
