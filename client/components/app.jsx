@@ -1,4 +1,5 @@
 import React from 'react'
+import PostList from './postList';
 import $ from 'jquery';
 
 
@@ -10,6 +11,7 @@ import VisibleTodoList from '../containers/visibleTodoList'
 const App = () => (
     <div>
         <Navbar />
+        <PostList />
         <AddTodo />
         <VisibleTodoList />
         <Footer />
